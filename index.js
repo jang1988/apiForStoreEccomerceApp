@@ -19,6 +19,11 @@ mongoose
         console.log(err);
     });
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', 'https://eccomerce-store-iota.vercel.app');
+    next();
+});
+
 app.use(cors());
 app.use(express.json());
 app.use('/api/auth', authRoute);
